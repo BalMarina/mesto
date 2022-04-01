@@ -11,7 +11,7 @@
 
 <body class="page">
     <section class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="Логотип сервиса Место">
+        <div class="header__logo"></div>
         <div class="header__line"></div>
     </section>
 
@@ -22,9 +22,7 @@
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <p class="profile__description">Исследователь океана</p>
             </div>
-            <button class="profile__edit-button">
-
-        </button>
+            <button class="profile__edit-button"></button>
         </div>
         <button class="profile__add-button">
         </button>
@@ -83,17 +81,13 @@
         <form class="popup__container">
             <button class="popup__close-icon" type="button"></button>
             <p class="popup__head">Редактировать профиль</p>
-            <!-- <fieldset class="popup__name">
-                <label for="popup__name">Жак-Ив Кусто</label> -->
-            <input type="text" class="popup__text" placeholder="Жак-Ив Кусто">
-            <!--  </fieldset> -->
-            <!-- <fieldset class="popup__description">
-                <label for="popup__description">Исследователь океана</label> -->
-            <input type="text" class="popup__text" placeholder="Исследователь океана">
-            <!--  </fieldset> -->
+            <input required type="text" class="popup__text" value="Жак-Ив Кусто" id="popup-name" placeholder="Имя">
+            <input required type="text" class="popup__text" value="Исследователь океана" id="popup-job" placeholder="О себе">
             <button class="popup__submit" type="submit">Сохранить</button>
         </form>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
