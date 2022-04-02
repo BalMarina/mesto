@@ -2,10 +2,10 @@
     border: 0;
     border-bottom: rgba(0, 0, 0, .2) 1px solid;
     margin-bottom: 30px;
-    min-height: 25px;
-}
+    min-height: 28px;
+    width: 100%;
+    padding: 0;
 
-.popup__text::placeholder {
     font-weight: 400;
     font-size: 14px;
     line-height: 1.21;

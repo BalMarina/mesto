@@ -7,8 +7,19 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    width: 100%;
 }
 
 .popup__submit:hover {
     opacity: .8;
+}
+
+@media (max-width: 767px) {
+    .popup__submit {
+        margin-top: 15px;
+
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+    }
 }
