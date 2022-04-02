@@ -12,7 +12,7 @@
 @media all and (max-width: 767px) {
     .header__logo {
         margin-left: 27px;
-        min-height: calc(33px * 0.74);
+        min-height: 24px;
         background-size: contain;
     }
 }
