@@ -8,10 +8,11 @@
     box-sizing: border-box;
     width: 24px;
     height: 24px;
-    top: 17px;
+    top: 16px;
     right: 0;
     margin-right: -42px;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .profile__edit-button:hover {
