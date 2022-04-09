@@ -3,6 +3,12 @@
     margin: 45px auto 37px;
 }
 
+@media (max-width: 767px) {
+    .header {
+        margin: 28px auto 42px;
+    }
+}
+
 @media all and (min-width: 768px) and (max-width: 1023px) {
     .header {
         max-width: calc(282px * 2 + 17px);

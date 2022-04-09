@@ -1,12 +1,13 @@
 .profile__text {
     text-align: center;
     position: relative;
-    margin-right: 43px;
+    margin-right: 63px;
 }
 
 @media all and (max-width: 767px) {
     .profile__text {
         box-sizing: border-box;
+        margin: 0 40px;
     }
 }
 

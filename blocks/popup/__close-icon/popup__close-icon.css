@@ -9,6 +9,7 @@
     max-height: 32px;
     top: -38px;
     right: -38px;
+    cursor: pointer;
 }
 
 .popup__close-icon:hover {
@@ -19,8 +20,8 @@
     .popup__close-icon {
         max-width: 20px;
         max-height: 20px;
-        top: -20px;
-        right: -20px;
+        top: -35px;
+        right: 0;
         padding: 0;
         background-size: contain;
     }
