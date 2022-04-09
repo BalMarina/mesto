@@ -1,18 +1,17 @@
 .header__logo {
-    background-image: url(../../../images/logo.svg);
-    background-repeat: no-repeat;
-    min-height: 33px;
-    width: 142px;
+  min-height: 33px;
+  width: 142px;
+  cursor: pointer;
 }
 
 .header__logo:hover {
-    background-image: url(../../../images/logo-hover.svg);
+  filter: invert(1);
 }
 
 @media all and (max-width: 767px) {
-    .header__logo {
-        margin-left: 27px;
-        min-height: 24px;
-        background-size: contain;
-    }
+  .header__logo {
+    margin-left: 27px;
+    min-height: 24px;
+    background-size: contain;
+  }
 }
