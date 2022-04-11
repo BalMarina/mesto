@@ -12,5 +12,6 @@
 @media screen and (min-width: 768px) {
   .profile__edit-container {
     margin-left: 30px;
+    max-width: calc(100% - 150px - 120px - 30px);
   }
 }

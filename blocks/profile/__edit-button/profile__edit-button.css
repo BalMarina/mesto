@@ -9,7 +9,6 @@
   background-repeat: no-repeat;
   cursor: pointer;
   position: relative;
-  top: -2px;
 }
 
 .profile__edit-button:hover {
@@ -20,6 +19,5 @@
   .profile__edit-button {
     width: 18px;
     height: 18px;
-    margin-right: -28px;
   }
 }

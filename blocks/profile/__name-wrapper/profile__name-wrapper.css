@@ -1,4 +1,12 @@
 .profile__name-wrapper {
   display: flex;
   align-items: baseline;
+  position: relative;
+}
+
+
+@media (max-width: 767px) {
+  .profile__name-wrapper {
+    margin-left: calc(10px + 18px);
+  }
 }
