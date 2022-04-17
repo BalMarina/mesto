@@ -11,7 +11,7 @@
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="images/logo.svg" alt="логотип" />
+    <img class="header__logo" src="images/logo.svg" alt="Логотип" />
   </header>
   <main>
     <section class="profile">
@@ -32,7 +32,8 @@
 
       <template id="element-template">
         <div class="element">
-          <img class="element__pic">
+          <img class="element__pic" alt="">
+          <img class="element__trash-button" src="./images/Trash-button.png" alt="Удалить карточку">
           <div class="element__container">
             <h2 class="element__name"></h2>
             <button aria-label="Нравится" class="element__like" type="button"></button>
@@ -114,6 +115,15 @@
           <button aria-label="Создать" class="popup__submit" type="submit">Создать</button>
         </fieldset>
       </form>
+    </div>
+  </div>
+
+  <div class="popup popup-pic">
+
+    <div class="popup__container popup-pic__content">
+      <button class="popup__close-icon" type="button"></button>
+      <img class="popup-pic__photo">
+      <span class="popup-pic__alt"></span>
     </div>
   </div>
 
