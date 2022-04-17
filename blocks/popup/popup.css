@@ -6,7 +6,10 @@
   top: 0;
   left: 0;
   z-index: 1;
-  display: none;
+  display: flex;
+  visibility: hidden;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity .3s linear, visibility .3s linear;
 }
