@@ -118,6 +118,17 @@ closeButtons.forEach(function (closeBtn) {
     closePopup(popup);
   })
 });
+
+let popups = document.querySelectorAll('.popup')
+
+popups.forEach(function (popup) {
+  popup.addEventListener('click', function (e) {
+    if (e.target === e.currentTarget) {
+      closePopup(popup);
+    };
+  });
+});
+
 editBtn.addEventListener('click', function () {
   openPopup(popupProfile);
 });
@@ -126,3 +137,12 @@ addBtn.addEventListener('click', function () {
   openPopup(popupCard);
 });
 formCard.addEventListener('submit', handleSubmitCard);
+
+document.addEventListener('keyup', function (e) {
+  if (e.key == 'Escape') {
+    const openedPopup = document.querySelector('.popup.popup_opened');
+    if (openedPopup) {
+      closePopup(openedPopup);
+    }
+  }
+})
