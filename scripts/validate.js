@@ -40,12 +40,12 @@ const setEventListeners = (formElement, configs) => {
   const inputSelectorList = Array.from(inputSelector);
   const submitButtonSelector = formElement.querySelector(configs.submitButtonSelector);
   toggleButtonState(inputSelectorList, submitButtonSelector, configs);
-  inputSelectorList.forEach((inputElement) => {
-    inputElement.addEventListener('input', function () {
+  formElement.addEventListener('input', function () {
+    inputSelectorList.forEach((inputElement) => {
       checkValid(formElement, inputElement, configs);
-      toggleButtonState(inputSelectorList, submitButtonSelector, configs);
     });
-  });
+    toggleButtonState(inputSelectorList, submitButtonSelector, configs);
+  })
 };
 
 function enableValidation(configs) {

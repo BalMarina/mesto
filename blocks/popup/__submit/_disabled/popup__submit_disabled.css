@@ -9,7 +9,7 @@
   line-height: 22px;
   width: 100%;
   border-radius: 2px;
-  cursor: wait;
+  cursor: default;
 }
 
 @media (max-width: 767px) {
