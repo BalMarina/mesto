@@ -47,31 +47,41 @@
     <p class="footer__copyright">© 2022 Mesto Russia</p>
   </footer>
 
-  <div class="popup popup-profile">
+  <div class="popup popup__form popup-profile">
     <div class="popup__container">
-      <form name="profile-form">
+      <form name="profile-form" novalidate>
         <button class="popup__close-icon" type="button"></button>
         <h2 class="popup__head">Редактировать профиль</h2>
         <fieldset class="popup__content">
-          <input required type="text" class="popup__text" value="" id="popup-name" name="popup-name" placeholder="Имя">
-          <input required type="text" class="popup__text" value="" id="popup-job" name="popup-job" placeholder="О себе">
-          <button aria-label="Сохранить" class="popup__submit" type="submit">Сохранить</button>
+          <input required type="text" class="popup__text popup__input" value="" id="popup-name" name="popup-name"
+            placeholder="Имя" minlength="2" maxlength="30" autocomplete="off">
+          <span class="popup-name_type_error popup__input_type_error popup__error_visible"
+            id="popup-name_type_error"></span>
+          <input required type="text" class="popup__text popup__input" value="" id="popup-job" name="popup-job"
+            placeholder="О себе" minlength="2" maxlength="200" autocomplete="off">
+          <span class="popup-job_type_error popup__input_type_error popup__error_visible"
+            id="popup-job_type_error"></span>
+          <button aria-label="Сохранить" class="popup__submit" type="submit" disabled>Сохранить</button>
         </fieldset>
       </form>
     </div>
   </div>
 
-  <div class="popup popup-card">
+  <div class="popup popup__form popup-card">
     <div class="popup__container">
-      <form name="card-form">
+      <form name="card-form" novalidate>
         <button class="popup__close-icon" type="button"></button>
         <h2 class="popup__head">Новое место</h2>
         <fieldset class="popup__content">
-          <input required type="text" class="popup__text" value="" id="card-name" name="card-name"
-            placeholder="Название">
-          <input required type="text" class="popup__text" value="" id="card-pic" name="card-pic"
+          <input required type="text" class="popup__text popup__input" value="" id="card-name" name="card-name"
+            placeholder="Название" minlength="1" maxlength="30" autocomplete="off">
+          <span class="card-name_type_error popup__input_type_error popup__error_visible"
+            id="card-name_type_error"></span>
+          <input required type="url" class="popup__text popup__input" value="" id="card-pic" name="card-pic"
             placeholder="Ссылка на картинку">
-          <button aria-label="Создать" class="popup__submit" type="submit">Создать</button>
+          <span class="card-pic_type_error popup__input_type_error popup__error_visible"
+            id="card-pic_type_error"></span>
+          <button aria-label="Создать" class="popup__submit" type="submit" disabled>Создать</button>
         </fieldset>
       </form>
     </div>
@@ -86,6 +96,7 @@
   </div>
 
   <script src="scripts/script.js"></script>
+  <script src="scripts/validate.js"></script>
 </body>
 
 </html>
