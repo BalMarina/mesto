@@ -94,18 +94,16 @@ function handleSubmitProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileJobInput.value;
-  const popup = evt.target.closest('.popup');
-  closePopup(popup);
+  closePopup(popupProfile);
 };
 
 function handleSubmitCard(evt) {
   evt.preventDefault();
   const resultCreateTemplate = createCard(cardNameInput.value, cardPicInput.value);
   elementsContainer.prepend(resultCreateTemplate);
-  const popup = evt.target.closest('.popup');
-  closePopup(popup);
-  popup.querySelector('.popup__submit').setAttribute('disabled', 'disabled');
-  popup.querySelector('.popup__submit').classList.add('popup__submit_disabled');
+  closePopup(popupCard);
+  popupCard.querySelector('.popup__submit').setAttribute('disabled', 'disabled');
+  popupCard.querySelector('.popup__submit').classList.add('popup__submit_disabled');
   evt.target.reset();
 };
 
