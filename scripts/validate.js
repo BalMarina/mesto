@@ -32,7 +32,7 @@ const toggleButtonState = (inputSelectorList, submitButtonSelector, configs) => 
   } else {
     submitButtonSelector.classList.remove(configs.inactiveButtonClass);
     submitButtonSelector.removeAttribute('disabled');
-  }
+  };
 };
 
 const setEventListeners = (formElement, configs) => {
@@ -43,9 +43,9 @@ const setEventListeners = (formElement, configs) => {
   inputSelectorList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       checkValid(formElement, inputElement, configs);
+      toggleButtonState(inputSelectorList, submitButtonSelector, configs);
     });
   });
-  toggleButtonState(inputSelectorList, submitButtonSelector, configs);
 };
 
 function enableValidation(configs) {
