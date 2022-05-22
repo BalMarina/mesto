@@ -1,10 +1,11 @@
-import { popupPhoto, closePopup, openPopup, openPhoto, popupCard } from './utils.js'
+import { closePopup, openPopup, popupCard } from './utils.js'
 
 export class Card {
   constructor(data, template) {
     this._name = data.name
     this._pic = data.pic
     this._template = template;
+    this._popupPhoto = document.querySelector('.popup-pic');
   }
 
   _getTemplate() {
@@ -28,11 +29,15 @@ export class Card {
     this._element.remove()
   };
 
-  // _generateCardAfterSubmit() {
-  //   this._name = document.querySelector('#card-name').textContent
-  //   this._pic = document.querySelector('#card-pic').style.backgroundImage
-  //   document.querySelector('.elements').prepend(this._name, this._pic)
-  // }
+  _openPhoto() {
+    document.querySelector('.popup-pic .popup-pic__alt').textContent = this._name
+    const imgPopup = document.querySelector('.popup-pic__photo')
+    imgPopup.src = this._pic
+    imgPopup.setAttribute("alt", this._name)
+    imgPopup.onload = () => {
+      openPopup(this._popupPhoto);
+    };
+  };
 
   _setEventListeners() {
     this._element.querySelector('.element__trash-button').addEventListener('click', () => {
@@ -42,29 +47,18 @@ export class Card {
       this._likeElement()
     })
     this._element.querySelector('.element__pic').addEventListener('click', (e) => {
-      openPopup(popupPhoto)
-      openPhoto(e)
+      this._openPhoto(e)
     })
   }
-
-
-  // _handleSubmitCard(e) {
-  //   e.preventDefault();
-  //   popupCard.querySelector('.popup__submit').setAttribute('disabled', 'disabled');
-  //   popupCard.querySelector('.popup__submit').classList.add('popup__submit_disabled');
-  // };
 
   generateCard() {
     this._element = this._getTemplate()
     this._setEventListeners()
-    this._element.querySelector('.element__name').textContent = this._name;
-    this._element.querySelector('.element__pic').src = this._pic;
-
-    //   const resultCreateTemplate = createCard(cardNameInput.value, cardPicInput.value);
-    //   elementsContainer.prepend(resultCreateTemplate);
+    this._element.querySelector('.element__name').textContent = this._name
+    const img = this._element.querySelector('.element__pic')
+    img.src = this._pic
+    img.alt = this._name
     closePopup(popupCard)
-    document.querySelector('.popup__submit').setAttribute('disabled', 'disabled');
-    document.querySelector('.popup__submit').classList.add('popup__submit_disabled');
-    return this._element;
+    return this._element
   }
 }
