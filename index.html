@@ -55,10 +55,10 @@
         <fieldset class="popup__content">
           <input required type="text" class="popup__text popup__input" value="" id="popup-name" name="popup-name"
             placeholder="Имя" minlength="2" maxlength="30" autocomplete="off">
-          <span class="popup__error popup__error_visible" id="popup-name_type_error"></span>
+          <span class="popup__error" id="popup-name_type_error"></span>
           <input required type="text" class="popup__text popup__input" value="" id="popup-job" name="popup-job"
             placeholder="О себе" minlength="2" maxlength="200" autocomplete="off">
-          <span class="popup__error popup__error_visible" id="popup-job_type_error"></span>
+          <span class="popup__error" id="popup-job_type_error"></span>
           <button aria-label="Сохранить" class="popup__submit" type="submit" disabled>Сохранить</button>
         </fieldset>
       </form>
@@ -73,10 +73,10 @@
         <fieldset class="popup__content">
           <input required type="text" class="popup__text popup__input" value="" id="card-name" name="card-name"
             placeholder="Название" minlength="2" maxlength="30" autocomplete="off">
-          <span class="popup__error popup__error_visible" id="card-name_type_error"></span>
+          <span class="popup__error" id="card-name_type_error"></span>
           <input required type="url" class="popup__text popup__input" value="" id="card-pic" name="card-pic"
             placeholder="Ссылка на картинку">
-          <span class="popup__error popup__error_visible" id="card-pic_type_error"></span>
+          <span class="popup__error" id="card-pic_type_error"></span>
           <button aria-label="Создать" class="popup__submit" type="submit" disabled>Создать</button>
         </fieldset>
       </form>
@@ -92,9 +92,6 @@
   </div>
 
   <script src="scripts/index.js" type="module"></script>
-  <script src="scripts/utils.js" type="module"></script>
-  <script src="scripts/Card.js" type="module"></script>
-  <script src="scripts/FormValidator.js" type="module"></script>
 </body>
 
 </html>
