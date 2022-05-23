@@ -1,16 +1,16 @@
-import { closePopup, openPopup, popupCard } from './utils.js'
+import { openPopup } from './utils.js'
 
 export class Card {
-  constructor(data, template) {
+  constructor(data, templateSelector) {
     this._name = data.name
     this._pic = data.pic
-    this._template = template;
-    this._popupPhoto = document.querySelector('.popup-pic');
+    this._templateSelector = templateSelector;
+    this._popupPhoto = document.querySelector('.popup-pic')
   }
 
   _getTemplate() {
     const cardElement = document
-      .querySelector(this._template)
+      .querySelector(this._templateSelector)
       .content
       .querySelector('.element')
       .cloneNode(true);
@@ -19,14 +19,12 @@ export class Card {
   }
 
   _likeElement() {
-    this._element
-      .querySelector('.element__like')
-      .classList
-      .toggle('element__like_active')
+    this._elementLikeButton.classList.toggle('element__like_active')
   };
 
   _delElement() {
     this._element.remove()
+    this._element = null
   };
 
   _openPhoto() {
@@ -40,25 +38,26 @@ export class Card {
   };
 
   _setEventListeners() {
-    this._element.querySelector('.element__trash-button').addEventListener('click', () => {
+    this._delButton.addEventListener('click', () => {
       this._delElement()
     })
-    this._element.querySelector('.element__like').addEventListener('click', () => {
+    this._elementLikeButton.addEventListener('click', () => {
       this._likeElement()
     })
-    this._element.querySelector('.element__pic').addEventListener('click', (e) => {
+    this._img.addEventListener('click', (e) => {
       this._openPhoto(e)
     })
   }
 
   generateCard() {
     this._element = this._getTemplate()
-    this._setEventListeners()
     this._element.querySelector('.element__name').textContent = this._name
-    const img = this._element.querySelector('.element__pic')
-    img.src = this._pic
-    img.alt = this._name
-    closePopup(popupCard)
+    this._img = this._element.querySelector('.element__pic')
+    this._img.src = this._pic
+    this._img.alt = this._name
+    this._elementLikeButton = this._element.querySelector('.element__like')
+    this._delButton = this._element.querySelector('.element__trash-button')
+    this._setEventListeners()
     return this._element
   }
 }
