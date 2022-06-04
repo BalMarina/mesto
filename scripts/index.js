@@ -1,6 +1,10 @@
 import { Card } from './Card.js'
 import { FormValidator } from './FormValidator.js'
 import { openPopup, closePopup } from './utils.js'
+import Section from './Section.js';
+import UserInfo from './UserInfo.js';
+import PopupWithForm from './PopupWithForm.js';
+import PopupWithImage from './PopupWithImage.js';
 
 const initialCards = [
   {
@@ -66,10 +70,15 @@ function initialCardElement(name, pic) {
   return card;
 };
 
+// const userInfoInstance = new useInfo({name, description})
+
 function handleSubmitProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileJobInput.value;
+  // const name = profileNameInput.value
+  // const description = profileJobInput.value
+  // userInfoInstance.setUserInfo({name, description})
   closePopup(popupProfile);
 };
 
@@ -99,8 +108,12 @@ popupCloseBtn.forEach(function (btnClose) {
     closePopup(popup);
   })
 });
+//comment this listener
 
 profileEditBtn.addEventListener('click', function () {
+  // const {name, description} = userInfoInstance.getUserInfo()
+  // profileNameInput.value = name
+  // profileJobInput.value = description
   profileNameInput.value = profileNameEl.textContent;
   profileJobInput.value = profileDescriptionEl.textContent;
   editFormValidator.resetErrors();
@@ -116,3 +129,19 @@ profileSaveBtn.addEventListener('click', function () {
 });
 
 formCard.addEventListener('submit', handleCardAfterSubmit);
+
+const popupWithImage = new PopupWithImage('.popup__pic')
+popupWithImage.setEventListeners()
+// вызывать setUserInfo
+
+const popup = new Popup('.popup')
+popup.setEventListeners()
+
+
+// const popupCard2 = new PopupWithForm(popupCard, {
+//   handleFormSubmit: (obj) => {
+//     createCard(obj) // в этой функции создаём экземпляр карточки и возвращаем его, можно одной строкой
+//   }
+//   listContainer.addItem(createCard(obj))
+//   cardFormInput.reset()
+// })

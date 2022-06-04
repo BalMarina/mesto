@@ -36,6 +36,7 @@ export class Card {
       openPopup(this._popupPhoto);
     };
   };
+  //comment this method
 
   _setEventListeners() {
     this._delButton.addEventListener('click', () => {
