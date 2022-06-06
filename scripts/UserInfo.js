@@ -1,27 +1,27 @@
-import { profileNameEl, profileDescriptionEl, } from ''
+// import { profileNameEl, profileDescriptionEl, } from './index.js'
 
 export default class UserInfo {
-  constructor(name, descr) {
-    this._name = document.querySelector(name)
+  constructor(username, description) {
+    this._name = document.querySelector(username)
     this._description = document.querySelector(description)
   }
 
   getUserInfo() {
     return {
-      name: this._name,
-      description: this._description
+      username: this._name.textContent,
+      description: this._description.textContent
     }
   }
 
-  setUserInfo({ name, description }) {
-    this._name = name
-    this._description = description
+  setUserInfo({ username, description }) {
+    this._name.textContent = username
+    this._description.textContent = description
 
-    this._generate()
+    // this._generate()
   }
 
-  _generate() {
-    profileNameEl.textContent = this._name
-    profileDescriptionEl.textContent = this._description
-  }
+  //   _generate() {
+  //     profileNameEl.textContent = this._name
+  //     profileDescriptionEl.textContent = this._description
+  //   }
 }

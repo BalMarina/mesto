@@ -1,4 +1,4 @@
-import Popup from '.Popup.js'
+import Popup from './Popup.js'
 
 export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
@@ -7,8 +7,8 @@ export default class PopupWithImage extends Popup {
     this._nameForPopupWithImage = document.querySelector('.popup-pic .popup-pic__alt')
   }
 
-  open({ name, src }) {
-    this._photoForPopupWithImage.setAttribute('src', src)
+  open({ name, pic }) {
+    this._photoForPopupWithImage.setAttribute('src', pic)
     this._nameForPopupWithImage.textContent = name
     this._photoForPopupWithImage.setAttribute("alt", name)
     super.open()

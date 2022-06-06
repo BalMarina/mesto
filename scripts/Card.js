@@ -1,11 +1,12 @@
 import { openPopup } from './utils.js'
 
 export class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, handleCardClick) {
     this._name = data.name
     this._pic = data.pic
     this._templateSelector = templateSelector;
     this._popupPhoto = document.querySelector('.popup-pic')
+    this._handleCardClick = handleCardClick
   }
 
   _getTemplate() {
@@ -27,15 +28,15 @@ export class Card {
     this._element = null
   };
 
-  _openPhoto() {
-    document.querySelector('.popup-pic .popup-pic__alt').textContent = this._name
-    const imgPopup = document.querySelector('.popup-pic__photo')
-    imgPopup.src = this._pic
-    imgPopup.setAttribute("alt", this._name)
-    imgPopup.onload = () => {
-      openPopup(this._popupPhoto);
-    };
-  };
+  // _openPhoto() {
+  //   document.querySelector('.popup-pic .popup-pic__alt').textContent = this._name
+  //   const imgPopup = document.querySelector('.popup-pic__photo')
+  //   imgPopup.src = this._pic
+  //   imgPopup.setAttribute("alt", this._name)
+  //   imgPopup.onload = () => {
+  //     openPopup(this._popupPhoto);
+  //   };
+  // };
   //comment this method
 
   _setEventListeners() {
@@ -46,7 +47,7 @@ export class Card {
       this._likeElement()
     })
     this._img.addEventListener('click', (e) => {
-      this._openPhoto(e)
+      this._handleCardClick(e)
     })
   }
 
