@@ -1,5 +1,3 @@
-// import { profileNameEl, profileDescriptionEl, } from './index.js'
-
 export default class UserInfo {
   constructor(username, description) {
     this._name = document.querySelector(username)
@@ -16,12 +14,5 @@ export default class UserInfo {
   setUserInfo({ username, description }) {
     this._name.textContent = username
     this._description.textContent = description
-
-    // this._generate()
   }
-
-  //   _generate() {
-  //     profileNameEl.textContent = this._name
-  //     profileDescriptionEl.textContent = this._description
-  //   }
 }

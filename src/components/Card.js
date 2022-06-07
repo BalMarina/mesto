@@ -1,5 +1,3 @@
-import { openPopup } from './utils.js'
-
 export class Card {
   constructor(data, templateSelector, handleCardClick) {
     this._name = data.name
@@ -27,17 +25,6 @@ export class Card {
     this._element.remove()
     this._element = null
   };
-
-  // _openPhoto() {
-  //   document.querySelector('.popup-pic .popup-pic__alt').textContent = this._name
-  //   const imgPopup = document.querySelector('.popup-pic__photo')
-  //   imgPopup.src = this._pic
-  //   imgPopup.setAttribute("alt", this._name)
-  //   imgPopup.onload = () => {
-  //     openPopup(this._popupPhoto);
-  //   };
-  // };
-  //comment this method
 
   _setEventListeners() {
     this._delButton.addEventListener('click', () => {

@@ -1,6 +1,5 @@
 import { Card } from '../components/Card.js'
 import { FormValidator } from '../components/FormValidator.js'
-// import { openPopup as open, closePopup as close } from './utils.js'
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import Popup from '../components/Popup.js';
@@ -54,23 +53,14 @@ const initialCards = [
   }
 ];
 
-const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup-profile');
 const profileEditBtn = document.querySelector('.profile__edit-button');
-const popupCloseBtn = document.querySelectorAll('.popup__close-icon');
 const formProfileEdit = popupProfile.querySelector('[name=profile-form]');
-const profileNameEl = document.querySelector('.profile__name');
-const profileDescriptionEl = document.querySelector('.profile__description');
 const profileNameInput = document.querySelector('#popup-name');
 const profileJobInput = document.querySelector('#popup-job');
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
 const profileSaveBtn = document.querySelector('.profile__add-button');
 const popupCard = document.querySelector('.popup-card');
-const cardNameInput = popupCard.querySelector('#card-name');
-const cardPicInput = popupCard.querySelector('#card-pic');
 const formCard = popupCard.querySelector('[name=card-form]');
-const elementsList = document.querySelector('.elements');
 
 const configs = {
   inputs: '.popup__input',
@@ -93,23 +83,14 @@ const cardsSection = new Section({
 },
   '.elements')
 
-cardsSection.renderItems()
-
 const popup = new Popup('.popup')
-popup.setEventListeners()
 
 const popupCardImage = new PopupWithImage('.popup-pic')
-popupCardImage.setEventListeners()
-//const userInfoCard = new UserInfo('#card-name', '#card-pic')
 
 const popupCardForm = new PopupWithForm('.popup-card', ({ name, pic }) => {
-  // initialCardElement({ name, pic })
   cardsSection.addItem(initialCardElement({ name, pic }), true)
   popupCardForm.close()
-  // cardFormInput.reset()
 })
-
-//userInfoCard.setUserInfo({ username, description })
 
 const userInfoInstance = new UserInfo('.profile__name', '.profile__description')
 
@@ -128,53 +109,22 @@ function initialCardElement({ name, pic }) {
   return card;
 };
 
-popupCardForm.setEventListeners()
-
 function handleSubmitProfileForm(e) {
-  // evt.preventDefault();
-  // profileName.textContent = profileNameInput.value;
-  // profileDescription.textContent = profileJobInput.value;
   const username = profileNameInput.value
   const description = profileJobInput.value
   userInfoInstance.setUserInfo({ username, description })
   popupUserForm.close(e);
 };
 
-// function handleCardAfterSubmit(e) {
-//   //e.preventDefault();
-//   const cardElement = initialCardElement(cardNameInput.value, cardPicInput.value);
-//   elementsList.prepend(cardElement);
-//   popupCardForm.close(e);
-// };
-
-// popups.forEach(function (popup) {
-//   popup.addEventListener('click', function (e) {
-//     if (e.target === e.currentTarget) {
-//       popup.close(e);
-//     };
-//   });
-// });
-
-// initialCards.forEach((item) => {
-//   const cardElement = initialCardElement(item.name, item.pic)
-//   elementsList.append(cardElement);
-// });
-
-// popupCloseBtn.forEach(function (btnClose) {
-//   btnClose.addEventListener('click', function (e) {
-//     const popup = e.target.closest('.popup');
-//     closePopup(popup);
-//   })
-// });
-//comment this listener
+cardsSection.renderItems()
+popup.setEventListeners()
+popupCardForm.setEventListeners()
+popupCardImage.setEventListeners()
 
 profileEditBtn.addEventListener('click', function (e) {
   const { username, description } = userInfoInstance.getUserInfo()
   profileNameInput.value = username
   profileJobInput.value = description
-  // profileNameInput.value = profileNameEl.textContent;
-  // profileJobInput.value = profileDescriptionEl.textContent;
-  // editFormValidator.resetErrors();
   popupUserForm.open(e);
 });
 
@@ -186,6 +136,5 @@ profileSaveBtn.addEventListener('click', function (e) {
   popupCardForm.open(e);
 });
 
-// formCard.addEventListener('submit', handleCardAfterSubmit);
 
 

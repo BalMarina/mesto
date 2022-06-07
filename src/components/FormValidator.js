@@ -70,11 +70,6 @@ export class FormValidator {
         this._toggleButtonState()
       })
     })
-
-    // this._currentForm.addEventListener('reset', () => {
-    //   this.resetErrors()
-    //   this._deactivateSubmitButton()
-    // })
   };
 
   enableValidation() {
