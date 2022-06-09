@@ -5,12 +5,12 @@ export default class Popup {
     this._handleEscClose = this._handleEscClose.bind(this)
   }
 
-  open(e) {
+  open() {
     this._popup.classList.add('popup_opened');
     document.addEventListener('keyup', this._handleEscClose);
   }
 
-  close(e) {
+  close() {
     this._popup.classList.remove('popup_opened');
     document.removeEventListener('keyup', this._handleEscClose);
   }

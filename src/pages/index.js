@@ -83,7 +83,6 @@ const cardsSection = new Section({
 },
   '.elements')
 
-const popup = new Popup('.popup')
 
 const popupCardImage = new PopupWithImage('.popup-pic')
 
@@ -117,7 +116,7 @@ function handleSubmitProfileForm(e) {
 };
 
 cardsSection.renderItems()
-popup.setEventListeners()
+popupUserForm.setEventListeners()
 popupCardForm.setEventListeners()
 popupCardImage.setEventListeners()
 
@@ -131,7 +130,6 @@ profileEditBtn.addEventListener('click', function (e) {
 formProfileEdit.addEventListener('submit', handleSubmitProfileForm);
 
 profileSaveBtn.addEventListener('click', function (e) {
-  formCard.reset();
   cardFormValidator.resetErrors();
   popupCardForm.open(e);
 });
