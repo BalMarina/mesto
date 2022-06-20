@@ -34,24 +34,12 @@ export class Card {
     return cardElement;
   }
 
-  // _checkLike() {
-  //   return this._likes.some(likes => {
-  //     return likes._cardId === this._userId;
-  //   })
-  // }
-
   likeElement() {
     this._handleLike(this._cardId, this._hasMyLike())
       .then(cardResponse => {
         this.updateCard(cardResponse)
         this._renderLike()
       })
-
-    // this._element.querySelector('.element__likes-counter').textContent = arr.length;
-    // this._likes = arr;
-    // if (this._checkLike()) {
-    //   this._elementLikeButton.classList.toggle('element__like_active')
-    // }
   };
 
   _renderLike() {
@@ -70,13 +58,13 @@ export class Card {
 
   _setEventListeners() {
     this._delButton.addEventListener('click', () => {
-      this._handleDelete()
+      this._handleDelete(this)
     })
     this._elementLikeButton.addEventListener('click', () => {
       this.likeElement()
     })
-    this._img.addEventListener('click', (e) => {
-      this._handleCardClick(e)
+    this._img.addEventListener('click', () => {
+      this._handleCardClick(this._name, this._pic)
     })
   }
 

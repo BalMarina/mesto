@@ -31,9 +31,6 @@ export default class Api {
         }
         return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`)
       })
-    // .then((result) => {
-    //   console.log(result);
-    // })
   }
 
   getCards() {
@@ -46,9 +43,6 @@ export default class Api {
         }
         return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`)
       })
-    // .then((result) => {
-    //   console.log(result);
-    // })
   }
 
   addCard({ name, link, ...rest }) {
@@ -63,9 +57,6 @@ export default class Api {
         }
         return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`)
       })
-    // .then((result) => {
-    //   console.log(result);
-    // })
   }
 
   likeCard(cardId) {
