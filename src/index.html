@@ -15,7 +15,10 @@
   </header>
   <main>
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/Avatar.png')%>" alt="Аватар профиля">
+      <div class="profile__changing-avatar">
+        <button aria-label="Редактировать аватар" class="profile__avatar-button" type="button"></button>
+        <img class="profile__avatar" src="<%=require('./images/Avatar.png')%>" alt="Аватар профиля">
+      </div>
       <div class="profile__edit-container">
         <div class="profile__text">
           <div class="profile__name-wrapper">
@@ -37,6 +40,7 @@
           <div class="element__container">
             <h2 class="element__name"></h2>
             <button aria-label="Нравится" class="element__like" type="button"></button>
+            <span class="element__likes-counter">0</span>
           </div>
         </div>
       </template>
@@ -88,6 +92,33 @@
       <button class="popup__close-icon" type="button"></button>
       <img class="popup-pic__photo" alt="">
       <span class="popup-pic__alt"></span>
+    </div>
+  </div>
+
+  <div class="popup popup-avatar">
+    <div class="popup__container">
+      <form name="avatar-form" class="popup__form" novalidate>
+        <button class="popup__close-icon" type="button"></button>
+        <h2 class="popup__head">Обновить аватар</h2>
+        <fieldset class="popup__content">
+          <input required type="url" class="popup__text popup__input" value="" id="avatar" name="avatar"
+            placeholder="Ссылка на картинку">
+          <span class="popup__error" id="avatar_type_error"></span>
+          <button aria-label="Сохранить" class="popup__submit" type="submit" disabled>Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup-confirm">
+    <div class="popup__container">
+      <form name="confirm-form" class="popup__form" novalidate>
+        <button class="popup__close-icon" type="button"></button>
+        <h2 class="popup__head">Вы уверены?</h2>
+        <fieldset class="popup__content">
+          <button aria-label="Да" class="popup__submit" type="submit">Да</button>
+        </fieldset>
+      </form>
     </div>
   </div>
 
