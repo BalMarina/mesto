@@ -66,7 +66,7 @@ const popupUserForm = new PopupWithForm('.popup-profile',
     api.addUser({ name: username, about: description })
       .then((data) => {
         userInfoInstance.setUserInfo(data)
-        popupUserForm.close(e);
+        popupUserForm.close();
       })
       .catch((err) => {
         console.log(err)
@@ -95,9 +95,15 @@ function handleCardClick(name, pic) {
 function handleLike(dataItem, hasMyLike = false) {
   const cardId = dataItem
   if (!hasMyLike) {
-    return api.likeCard(cardId);
+    return api.likeCard(cardId)
+      .catch((err) => {
+        console.log(err)
+      })
   }
-  return api.dislikeCard(cardId);
+  return api.dislikeCard(cardId)
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 function handleDelete(card) {
@@ -138,17 +144,18 @@ profileEditBtn.addEventListener('click', function (e) {
   const { name, about } = userInfoInstance.getUserInfo()
   profileNameInput.value = name
   profileJobInput.value = about
-  popupUserForm.open(e);
+  editFormValidator.resetErrors();
+  popupUserForm.open();
 });
 
 avatarBtn.addEventListener('click', function (e) {
   avatarFormValidator.resetErrors()
-  popupAvatarForm.open(e)
+  popupAvatarForm.open()
 });
 
 profileSaveBtn.addEventListener('click', function (e) {
   cardFormValidator.resetErrors();
-  popupCardForm.open(e);
+  popupCardForm.open();
 });
 
 Promise.all([

@@ -21,7 +21,7 @@ export class Card {
   }
 
   _hasMyLike() {
-    return this._likes.some(v => v._id === this._userInfo.id)
+    return this._likes.some(res => res._id === this._userInfo.id)
   }
 
   _getTemplate() {

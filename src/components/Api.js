@@ -7,16 +7,18 @@ export default class Api {
       }
   }
 
+  _checkStatus(res) {
+    if (res.ok) {
+      return res.json()
+    }
+    return Promise.reject(`Ошибка: ${res.status}`)
+  }
+
   getUser() {
     return fetch(`${this._url}/users/me`, {
       headers: this._headers
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        }
-        return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`)
-      });
+      .then((res) => this._checkStatus(res))
   }
 
   addUser(userData) {
@@ -25,24 +27,14 @@ export default class Api {
       method: 'PATCH',
       body: JSON.stringify(userData)
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        }
-        return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`)
-      })
+      .then((res) => this._checkStatus(res))
   }
 
   getCards() {
     return fetch(`${this._url}/cards`, {
       headers: this._headers
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        }
-        return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`)
-      })
+      .then((res) => this._checkStatus(res))
   }
 
   addCard({ name, link, ...rest }) {
@@ -51,26 +43,15 @@ export default class Api {
       method: 'POST',
       body: JSON.stringify({ name: name, link: link, ...rest })
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        }
-        return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`)
-      })
+      .then((res) => this._checkStatus(res))
   }
 
   likeCard(cardId) {
     return fetch(`${this._url}/cards/likes/${cardId}`, {
       method: 'PUT',
       headers: this._headers,
-    }
-    )
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`);
-      })
+    })
+      .then((res) => this._checkStatus(res))
   }
 
   dislikeCard(cardId) {
@@ -78,12 +59,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers,
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`);
-      })
+      .then((res) => this._checkStatus(res))
   }
 
 
@@ -92,12 +68,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers,
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`);
-      })
+      .then((res) => this._checkStatus(res))
   }
 
   changeAvatar(data) {
@@ -106,12 +77,7 @@ export default class Api {
       headers: this._headers,
       body: JSON.stringify(data)
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${res.status}`);
-      })
+      .then((res) => this._checkStatus(res))
   }
 
 }

@@ -6,18 +6,28 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    const { id, name, about, avatar } = this;
+    const { _id: id, _name: name, _about: about, _avatar: avatar } = this;
     return { id, name, about, avatar }
   }
 
-  setUserInfo({ name, about, avatar, _id }) {
-    this.name = name
-    this.about = about
-    this.avatar = avatar
-    this.id = _id
+  setUserInfo(data) {
+    if (data.hasOwnProperty('name')) {
+      this._name = data.name
+      this._nameElement.textContent = data.name
+    }
 
-    this._nameElement.textContent = name
-    this._descriptionElement.textContent = about
-    this._avatarElement.src = avatar
+    if (data.hasOwnProperty('about')) {
+      this._about = data.about
+      this._descriptionElement.textContent = data.about
+    }
+
+    if (data.hasOwnProperty('avatar')) {
+      this._avatar = data.avatar
+      this._avatarElement.src = data.avatar
+    }
+
+    if (data.hasOwnProperty('_id')) {
+      this._id = data._id
+    }
   }
 }
