@@ -17,7 +17,7 @@ export default class PopupWithForm extends Popup {
     return this._inputValues
   }
 
-  _renderLoading(isRestore = false) {
+  renderLoading(isRestore = false) {
     if (isRestore) {
       if (this._defaultText) {
         this._submit.textContent = this._defaultText
@@ -32,14 +32,13 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners()
     this._form.addEventListener('submit', (e) => {
       e.preventDefault()
-      this._renderLoading()
+      this.renderLoading()
       this._handleFormSubmit(this._getInputValues())
     })
   }
 
   close() {
     this._form.reset();
-    this._renderLoading(true)
     super.close();
   }
 }

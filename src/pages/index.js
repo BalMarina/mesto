@@ -55,6 +55,9 @@ const popupCardForm = new PopupWithForm('.popup-card', ({ name, pic }) => {
     .catch((err) => {
       console.log(err)
     })
+    .finally(() => {
+      popupCardForm.renderLoading(true)
+    })
 })
 
 const userInfoInstance = new UserInfo('.profile__name', '.profile__description', '.profile__avatar')
@@ -71,6 +74,9 @@ const popupUserForm = new PopupWithForm('.popup-profile',
       .catch((err) => {
         console.log(err)
       })
+      .finally(() => {
+        popupUserForm.renderLoading(true)
+      })
   })
 
 const popupAvatarForm = new PopupWithForm('.popup-avatar', (inputData) => {
@@ -81,6 +87,9 @@ const popupAvatarForm = new PopupWithForm('.popup-avatar', (inputData) => {
     })
     .catch((err) => {
       console.log(err)
+    })
+    .finally(() => {
+      popupAvatarForm.renderLoading(true)
     })
 })
 
