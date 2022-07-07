@@ -1,4 +1,4 @@
-# Проект: Место
+# Проект: Mesto
 
 ### Ссылка на страницу: https://balmarina.github.io/mesto/.
 
